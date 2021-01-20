@@ -5,11 +5,12 @@
     <hr>
 
     <div class="text-center mt-3 mb-4">
-        <a href="">
+        <a href="{{url('books/create')}}">
             <button class="btn btn-success">Cadastrar</button>
         </a>
     </div>
     <div class="col-8 m-auto">
+        @csrf
         <table class="table table-hover table-dark text-center">
             <thead>
               <tr>
@@ -35,11 +36,11 @@
                                 <button class="btn btn-light">Visualizar</button>
                             </a>
 
-                            <a href="">
+                            <a href="{{url('books/'.$books->id.'/edit')}}">
                                 <button class="btn btn-primary">Editar</button>
                             </a>
 
-                            <a href="">
+                            <a href="{{url('books/'.$books->id)}}" class="js-del">
                                 <button class="btn btn-danger">Deletar</button>
                             </a>
                         </td>
@@ -48,5 +49,6 @@
               
             </tbody>
           </table>
+          {{$book->links()}}
     </div>
 @endsection

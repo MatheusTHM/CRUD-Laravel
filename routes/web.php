@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BookController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,4 +14,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::resource('/books', 'App\Http\Controllers\BookController');
+Route::resource('/books', BookController::class)->names([
+    'create' => 'cadastrar', //tipo da rota => nome pra rota
+    'index' => 'books'
+]);
+
+Route::get('/', function () {
+    return redirect()->route('books');
+});
+
+Route::get('/add', function () {
+    return redirect()->route('cadastrar');
+});
