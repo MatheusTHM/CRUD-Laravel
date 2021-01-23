@@ -16,11 +16,11 @@ use App\Http\Controllers\BookController;
 
 Route::resource('/books', BookController::class)->names([
     'create' => 'cadastrar', //tipo da rota => nome pra rota
-    'index' => 'books'
+    //'index' => 'books'
 ]);
 
 Route::get('/', function () {
-    return redirect()->route('books');
+    return redirect()->route('books.index');
 });
 
 Route::get('/add', function () {
